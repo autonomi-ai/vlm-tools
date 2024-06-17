@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "vlm-tools"
+version = "0.1.0"
+description = "Tools to work with the VLM-1 API."
+authors = ["Sudeep Pillai <sudeep.pillai@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.12"
+requests = "^2.31.0"
+pydantic = {extras = ["email"], version = "^2.7.1"}
+python-dotenv = "^1.0.1"
+torch-nos = "^0.3.0"
+scenedetect = {extras = ["opencv"], version = "^0.6.4"}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 119
+target-version = ['py310']
+exclude = '''
+    /(
+        \.eggs
+      | \.git
+      | \.hg
+      | \.mypy_cache
+      | \.tox
+      | \.venv
+      | _build
+      | build
+      | dist
+    )/
+'''
+
+[tool.ruff]
+# Enable pycodestyle (`E`) and Pyflakes (`F`) codes by default.
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "C",  # flake8-comprehensions
+    "B",  # flake8-bugbear
+]
+ignore = [
+    "E501",  # E501: Line too long
+    "C901",  # C901: Function is too complex
+    "B008",  # do not perform function calls in argument defaults
+    "B904",  # B904: check for raise from None
+]
+line-length = 119
+target-version = "py310"

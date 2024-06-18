@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "vlm-tools"
-version = "0.1.0"
+version = "0.2.0"
 description = "Tools to work with the VLM-1 API."
 authors = ["Sudeep Pillai <sudeep.pillai@gmail.com>"]
 readme = "README.md"
@@ -11,7 +11,17 @@ requests = "^2.31.0"
 pydantic = {extras = ["email"], version = "^2.7.1"}
 python-dotenv = "^1.0.1"
 torch-nos = "^0.3.0"
-scenedetect = {extras = ["opencv"], version = "^0.6.4"}
+numpy = "^1.26.0,<2.0"
+typer = "^0.12.3"
+torch = { version = "^2.3.1", optional = true }
+torchvision = { version = "^0.18.1", optional = true }
+transformers = { version = "^4.41.2", optional = true }
+
+[tool.poetry.extras]
+torch = ["torch", "torchvision", "transformers"]
+
+[tool.poetry.scripts]
+vlm-tools = "vlm_tools.cli:app"
 
 [build-system]
 requires = ["poetry-core"]

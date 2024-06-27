@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "vlm-tools"
-version = "0.2.0"
+version = "0.2.1"
 description = "Tools to work with the VLM-1 API."
 authors = ["Sudeep Pillai <sudeep.pillai@gmail.com>"]
 readme = "README.md"

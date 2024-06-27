@@ -10,7 +10,6 @@ from tqdm import tqdm
 
 from vlm_tools.api import get_key, vlm
 from vlm_tools.constants import VLM_BASE_URL, VLM_ENDPOINT_URL
-from vlm_tools.video import VideoItertools, VideoReader
 
 app = typer.Typer()
 
@@ -33,6 +32,8 @@ def submit_image(path: Path, domain: str):
 @app.command("submit-video")
 def submit_video(path: Path, domain: str, max_frames: int = 10):
     """Submit a video in a streaming fashion to the VLM API."""
+    from vlm_tools.video import VideoItertools, VideoReader
+
     typer.echo(f"Submitting video at path={path} to domain={domain}.")
     if not path.exists():
         raise ValueError(f"Path={path} does not exist.")
